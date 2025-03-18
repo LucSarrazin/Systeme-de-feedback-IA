@@ -78,9 +78,7 @@ http://localhost:8080
 
 ## 🖥️ Aperçu
 ✨ **Interface utilisateur moderne et réactive**
-
 📡 **Feedback instantané sur les phrases soumises**
-
 🔐 **Connexion sécurisée des utilisateurs**
 
 ---
@@ -89,8 +87,11 @@ http://localhost:8080
 Les contributions sont les bienvenues ! 🎉
 
 **Forkez** le projet
+
 **Créez** une branche (**'feature/nouvelle-fonctionnalite'**)
+
 **Faites** vos modifications
+
 **Soumettez** une pull request
 
 ---
