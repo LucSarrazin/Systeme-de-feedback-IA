@@ -77,9 +77,11 @@ http://localhost:8080
 ---
 
 ## 🖥️ Aperçu
-✨ Interface utilisateur moderne et réactive
-📡 Feedback instantané sur les phrases soumises
-🔐 Connexion sécurisée des utilisateurs
+✨ **Interface utilisateur moderne et réactive**
+
+📡 **Feedback instantané sur les phrases soumises**
+
+🔐 **Connexion sécurisée des utilisateurs**
 
 ---
 
