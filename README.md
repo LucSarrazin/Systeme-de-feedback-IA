@@ -36,8 +36,6 @@ L'objectif de ce projet est de fournir un **système de feedback intuitif et rap
 
 - **💻 Frontend** : Vue.js  
 - **🗄️ Backend** : Node.js  
-- **🔐 Sécurité** : Authentification JWT pour sécuriser les sessions utilisateur  
-- **📦 Gestion des états** : Vuex pour la gestion des données d'application  
 
 ---
 
