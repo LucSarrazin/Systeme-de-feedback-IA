@@ -73,18 +73,26 @@ Ouvrez votre navigateur et allez sur :
 ```bash
 http://localhost:8080
 ```
+
+---
+
 ## 🖥️ Aperçu
 ✨ Interface utilisateur moderne et réactive
 📡 Feedback instantané sur les phrases soumises
 🔐 Connexion sécurisée des utilisateurs
 
+---
+
 ## 🤝 Contribution
 Les contributions sont les bienvenues ! 🎉
 
-Forkez le projet
-Créez une branche (feature/nouvelle-fonctionnalite)
-Faites vos modifications
-Soumettez une pull request
+**Forkez** le projet
+**Créez** une branche (**'feature/nouvelle-fonctionnalite'**)
+**Faites** vos modifications
+**Soumettez** une pull request
+
+---
+
 ## 📄 License
 📌 Ce projet est un projet personnel éducatif et ne doit pas être utilisé à des fins commerciales.
 
