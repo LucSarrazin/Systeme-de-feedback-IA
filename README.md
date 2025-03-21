@@ -16,7 +16,7 @@
 ## 📖 Description  
 
 Bienvenue dans le **Système de Feedback IA** ! 🚀  
-Ce projet est une plateforme permettant aux utilisateurs de soumettre des phrases ou des commentaires et de recevoir des retours instantanés générés par une intelligence artificielle. Il est conçu en **Vue.js** pour une interface utilisateur réactive et moderne, avec un backend en **Node.js** pour gérer les requêtes et les réponses.
+Ce projet est une plateforme permettant aux utilisateurs de soumettre des phrases ou des commentaires et de recevoir des retours instantanés générés par une intelligence artificielle. Il est conçu en **Vue.js** pour une interface utilisateur réactive et moderne, avec un backend en **Java Spring Boot** pour gérer les requêtes et les réponses.
 
 L'objectif de ce projet est de fournir un **système de feedback intuitif et rapide**, mettant en avant les capacités de l'IA pour analyser et répondre aux entrées des utilisateurs.
 
