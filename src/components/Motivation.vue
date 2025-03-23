@@ -120,50 +120,135 @@ const uploadFile = async () => {
 };
 </script>
 
-
 <template>
-  <div>
-    <input type="file" accept="application/pdf" @change="handleFileSelection"/>
-    <p v-if="pdfFile">📄 Fichier sélectionné : {{ pdfFile.name }}</p>
+  <div class="container">
+    <h2>📄 Analyse de PDF & Lettre de Motivation</h2>
 
+    <!-- Champ de sélection de fichier -->
+    <div class="file-input-container">
+      <label for="file-upload" class="custom-file-upload">
+        📂 Choisir un PDF
+      </label>
+      <input id="file-upload" type="file" accept="application/pdf" @change="handleFileSelection" />
+      <p v-if="pdfFile" class="file-info">📄 Fichier sélectionné : <strong>{{ pdfFile.name }}</strong></p>
+    </div>
+
+    <!-- Bouton d'envoi -->
     <button :disabled="!pdfFile || isUploading" @click="uploadFile">
-      {{ isUploading ? "Traitement en cours..." : "Envoyer le PDF" }}
+      {{ isUploading ? "⏳ Traitement en cours..." : "📤 Envoyer le PDF" }}
     </button>
 
-    <div v-if="motivationLetter">
-      <h3>📜 Lettre de Motivation Générée :</h3>
+    <!-- Affichage de la lettre générée -->
+    <div v-if="motivationLetter" class="output">
+      <h3 style="color: black">📜 Lettre de Motivation Générée :</h3>
       <pre>{{ motivationLetter }}</pre>
     </div>
   </div>
 </template>
 
 <style scoped>
-input {
-  display: block;
-  margin-bottom: 10px;
+/* Conteneur principal */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
 }
 
-button {
-  padding: 8px 12px;
+/* Titre */
+h2 {
+  color: #333;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Champ de sélection de fichier */
+.file-input-container {
+  margin-bottom: 15px;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: white;
   background-color: #007bff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+/* Cacher l'input par défaut */
+input[type="file"] {
+  display: none;
+}
+
+.file-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Bouton d'envoi */
+button {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #007bff;
   color: white;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #0056b3;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Sortie de la lettre générée */
+.output {
+  margin-top: 20px;
+  text-align: left;
 }
 
 pre {
   background: #f4f4f4;
-  color: #007bff;
-  padding: 10px;
+  color: #333;
+  padding: 12px;
   border-radius: 5px;
-  max-width: 100%; /* Empêche le débordement horizontal */
-  overflow-x: auto; /* Ajoute un scroll horizontal si nécessaire */
-  white-space: pre-wrap; /* Permet le retour à la ligne automatique */
-  word-wrap: break-word; /* Coupe les mots trop longs si besoin */
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 14px;
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  pre {
+    font-size: 13px;
+  }
+}
 </style>

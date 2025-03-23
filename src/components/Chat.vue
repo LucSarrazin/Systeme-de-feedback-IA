@@ -82,114 +82,209 @@ const fullPhrase = computed(() => {
 
 <template>
   <div class="chat-container">
-    <input v-model="userMessage" placeholder="Entrez une phrase à analyser..." />
-    <button @click="sendMessage" :disabled="isLoading">
-      {{ isLoading ? "Analyse en cours..." : "Analyser" }}
-    </button>
+    <h2>🔎 Analyse de Phrase</h2>
 
-    <!-- Affichage de la réponse brute pour débogage -->
-    <!--<div v-if="rawResponse">
-      <h4>Réponse brute :</h4>
-      <pre>{{ rawResponse }}</pre>
-    </div>-->
-
-    <div v-if="responseJson && !responseJson.error">
-      <!-- TABLEAU ANALYSE SYNTAXIQUE -->
-      <h3>📌 Analyse Syntaxique</h3>
-      <table>
-        <thead>
-        <tr>
-          <th>Phrase</th>
-          <th>Mot</th>
-          <th>Type</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="(composant, index) in responseJson.syntaxe.phrases" :key="index">
-          <td>{{ fullPhrase }}</td>
-          <td>{{ composant.mot }}</td>
-          <td>{{ composant.type }}</td>
-        </tr>
-        </tbody>
-      </table>
-
-      <!-- TABLEAU ANALYSE SÉMANTIQUE -->
-      <h3>📌 Analyse Sémantique</h3>
-      <table>
-        <thead>
-        <tr>
-          <th>Catégorie / Mot</th>
-          <th>Signification</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Affiche l'intention si présente -->
-        <tr v-if="responseJson.sémantique.intention">
-          <td>Intention</td>
-          <td>{{ responseJson.sémantique.intention }}</td>
-        </tr>
-        <!-- Affiche le contexte -->
-        <tr v-if="responseJson.sémantique.contexte">
-          <td>Contexte</td>
-          <td>{{ responseJson.sémantique.contexte }}</td>
-        </tr>
-        <!-- Affiche l'interprétation -->
-        <tr v-for="(valeur, mot) in responseJson.sémantique.signification" :key="mot">
-          <td>{{ mot }}</td>
-          <td>{{ valeur }}</td>
-        </tr>
-        </tbody>
-      </table>
+    <!-- Champ de saisie et bouton -->
+    <div class="input-container">
+      <input
+          v-model="userMessage"
+          placeholder="Entrez une phrase à analyser..."
+          aria-label="Saisissez une phrase"
+      />
+      <button @click="sendMessage" :disabled="isLoading">
+        {{ isLoading ? "Analyse en cours..." : "Analyser" }}
+      </button>
     </div>
 
-    <div v-else-if="responseJson && responseJson.error">
-      <p>{{ responseJson.error }}</p>
+    <!-- Animation de chargement -->
+    <div v-if="isLoading" class="loading">⏳ Analyse en cours...</div>
+
+    <!-- Affichage des résultats -->
+    <div v-if="responseJson && !responseJson.error">
+      <!-- 📌 Analyse Syntaxique -->
+      <section>
+        <br>
+        <h3 style="color: black">📌 Analyse Syntaxique</h3>
+        <table>
+          <thead>
+          <tr>
+            <th>Mot</th>
+            <th>Type</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(composant, index) in responseJson.syntaxe.phrases" :key="index">
+            <td>{{ composant.mot }}</td>
+            <td>{{ composant.type }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+      <br>
+      <!-- 📌 Analyse Sémantique -->
+      <section>
+        <h3 style="color: black">📌 Analyse Sémantique</h3>
+        <table>
+          <thead>
+          <tr>
+            <th>Catégorie / Mot</th>
+            <th>Signification</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-if="responseJson.sémantique.intention">
+            <td>Intention</td>
+            <td>{{ responseJson.sémantique.intention }}</td>
+          </tr>
+          <tr v-if="responseJson.sémantique.contexte">
+            <td>Contexte</td>
+            <td>{{ responseJson.sémantique.contexte }}</td>
+          </tr>
+          <tr v-for="(valeur, mot) in responseJson.sémantique.signification" :key="mot">
+            <td>{{ mot }}</td>
+            <td>{{ valeur }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- Message d'erreur si problème -->
+    <div v-else-if="responseJson && responseJson.error" class="error-message">
+      ❌ {{ responseJson.error }}
     </div>
   </div>
 </template>
 
-<style scoped>
+<style>
+/* Conteneur principal */
 .chat-container {
-  max-width: 600px;
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+max-width: 800px;
+margin: 50px auto;
+padding: 25px;
+background: #ffffff;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+text-align: center;
 }
+
+/* Titre */
+h2 {
+color: #333;
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+/* Champ de saisie et bouton */
+.input-container {
+display: flex;
+gap: 10px;
+justify-content: center;
+}
+
 input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
+padding: 12px;
+border: 2px solid #007bff;
+border-radius: 8px;
+width: 70%;
+font-size: 16px;
+transition: border-color 0.3s ease-in-out;
 }
+
+input:focus {
+border-color: #0056b3;
+outline: none;
+}
+
 button {
-  padding: 8px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+padding: 12px 16px;
+font-size: 16px;
+font-weight: bold;
+background: #007bff;
+color: white;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: background 0.3s ease-in-out;
 }
+
+button:hover {
+background: #0056b3;
+}
+
 button:disabled {
-  background-color: #ccc;
+background: #ccc;
+cursor: not-allowed;
 }
+
+/* Animation de chargement */
+.loading {
+margin-top: 15px;
+font-size: 16px;
+font-weight: bold;
+color: #007bff;
+}
+
+/* Tables */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+width: 100%;
+border-collapse: collapse;
+margin-top: 15px;
+border-radius: 8px;
+overflow: hidden;
 }
+
 th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+padding: 12px;
+text-align: left;
+border-bottom: 1px solid #ddd;
 }
+
 th {
-  background-color: #f4f4f4;
+background: #007bff;
+color: white;
+text-transform: uppercase;
 }
-pre {
-  background: #f9f9f9;
-  padding: 10px;
-  border-radius: 5px;
-  overflow-x: auto;
+
+td {
+background: #f9f9f9;
+  color: black;
+}
+
+tr:hover td {
+background: #e3f2fd;
+}
+
+/* Message d'erreur */
+.error-message {
+margin-top: 15px;
+font-size: 16px;
+font-weight: bold;
+color: red;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.chat-container {
+width: 90%;
+padding: 15px;
+}
+
+.input-container {
+flex-direction: column;
+gap: 5px;
+}
+
+input {
+width: 100%;
+}
+
+button {
+width: 100%;
+}
+
+table {
+font-size: 14px;
+}
 }
 </style>
