@@ -21,6 +21,7 @@ const menuOpen = ref(false);
         <div :class="['nav-links', { 'active': menuOpen }]">
           <router-link to="/" @click="menuOpen = false">Analyse de phrase</router-link>
           <router-link to="/lettre" @click="menuOpen = false">Lettre de motivation</router-link>
+          <router-link to="/orthographe" @click="menuOpen = false">Correcteur</router-link>
         </div>
       </div>
     </nav>
