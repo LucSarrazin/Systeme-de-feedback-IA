@@ -2,8 +2,7 @@
 import { ref, computed } from "vue";
 import { Mistral } from "@mistralai/mistralai";
 
-// Clé API (à sécuriser en production via .env)
-const apiKey = "JDPqSnYb8vlOnUPwnnFjz7Roq1VlL6bi";
+const apiKey = import.meta.env.VITE_MISTRAL_API_KEY;
 const client = new Mistral({ apiKey });
 
 const userMessage = ref("");

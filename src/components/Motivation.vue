@@ -9,7 +9,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 
-const apiKey = "JDPqSnYb8vlOnUPwnnFjz7Roq1VlL6bi"; // Remplace par ta clé API
+const apiKey = import.meta.env.VITE_MISTRAL_API_KEY;
 const pdfFile = ref(null);
 const isUploading = ref(false);
 const extractedText = ref("");
