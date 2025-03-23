@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from "vue";
 import * as pdfjsLib from "pdfjs-dist";
-
-// ⚠️ Corrige l'import du worker
 import "pdfjs-dist/build/pdf.worker.mjs";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
@@ -16,6 +14,8 @@ const pdfFile = ref(null);
 const isUploading = ref(false);
 const extractedText = ref("");
 const motivationLetter = ref("");
+const displayedResponse = ref("");
+const isSkipped = ref(false);
 
 // Sélection du fichier PDF
 const handleFileSelection = (event) => {
@@ -92,6 +92,7 @@ const generateMotivationLetter = async (cvText) => {
     if (!response.ok) throw new Error(data.error || "Échec de la génération");
 
     motivationLetter.value = data.choices[0].message.content;
+    startTypingEffect(motivationLetter.value);
     console.log("✉️ Lettre de motivation générée :", motivationLetter.value);
   } catch (error) {
     console.error("❌ Erreur de génération de la lettre :", error);
@@ -110,13 +111,29 @@ const uploadFile = async () => {
   try {
     extractedText.value = await extractTextFromPDF(pdfFile.value);
     console.log("📄 Texte extrait du PDF :", extractedText.value);
-
     await generateMotivationLetter(extractedText.value);
   } catch (error) {
     console.error("❌ Erreur :", error);
   } finally {
     isUploading.value = false;
   }
+};
+
+
+
+// Fonction pour afficher la réponse caractère par caractère
+const startTypingEffect = (text) => {
+  let index = 0;
+  displayedResponse.value = "";
+
+  const interval = setInterval(() => {
+    if (index < text.length) {
+      displayedResponse.value += text[index];
+      index++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 30); // Vitesse de frappe (50ms par caractère)
 };
 </script>
 
@@ -139,9 +156,17 @@ const uploadFile = async () => {
     </button>
 
     <!-- Affichage de la lettre générée -->
-    <div v-if="motivationLetter" class="output">
+    <div v-if="displayedResponse && !isSkipped" class="output">
+      <button class="skip-button" @click="isSkipped = true">Skip</button>
       <h3 style="color: black">📜 Lettre de Motivation Générée :</h3>
-      <pre>{{ motivationLetter }}</pre>
+      <pre>{{ displayedResponse }}</pre>
+    </div>
+
+    <div v-if="isSkipped" class="output">
+      <div v-if="motivationLetter">
+        <h3 style="color: black">📜 Lettre de Motivation Générée :</h3>
+        <pre>{{ motivationLetter }}</pre>
+      </div>
     </div>
   </div>
 </template>
@@ -218,8 +243,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Sortie de la lettre générée */
+/* Position relative pour bien contenir le bouton */
 .output {
+  position: relative;
+  padding-top: 40px; /* Pour ne pas chevaucher le bouton */
   margin-top: 20px;
   text-align: left;
 }
@@ -234,6 +261,34 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   font-size: 14px;
+}
+
+pre::after {
+  content: ""; /* Curseur */
+  animation: blink 0.8s infinite;
+}
+
+/* Bouton Skip aligné à droite */
+.skip-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #ff4d4d;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.skip-button:hover {
+  background: #cc0000;
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Responsive */

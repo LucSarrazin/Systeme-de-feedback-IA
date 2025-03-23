@@ -9,6 +9,7 @@ const client = new Mistral({ apiKey });
 const userMessage = ref("");
 const response = ref("");
 const rawResponse = ref("");
+const displayedResponse = ref("");
 const isLoading = ref(false);
 
 const sendMessage = async () => {
@@ -16,6 +17,7 @@ const sendMessage = async () => {
 
   isLoading.value = true;
   rawResponse.value = "";
+  displayedResponse.value = "";
 
   try {
     const chatResponse = await client.chat.complete({
@@ -35,6 +37,7 @@ const sendMessage = async () => {
     console.log("✏️ Phrase corrigée générée :", chatResponse.value);
     response.value = chatResponse.choices[0].message.content;
     isLoading.value = false;
+    startTypingEffect(response.value);
   } catch (error) {
     isLoading.value = false;
     response.value = "Erreur de génération de la lettre :" + error;
@@ -42,6 +45,22 @@ const sendMessage = async () => {
   }
 };
 
+
+
+// Fonction pour afficher la réponse caractère par caractère
+const startTypingEffect = (text) => {
+  let index = 0;
+  displayedResponse.value = "";
+
+  const interval = setInterval(() => {
+    if (index < text.length) {
+      displayedResponse.value += text[index];
+      index++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 50); // Vitesse de frappe (50ms par caractère)
+};
 </script>
 
 <template>
@@ -65,9 +84,9 @@ const sendMessage = async () => {
 
 
     <!-- Affichage de la phrase corrigée -->
-    <div v-if="response" class="output">
+    <div v-if="displayedResponse" class="output">
       <h3 style="color: black">✏️ Phrase corrigée :</h3>
-      <pre>{{ response }}</pre>
+      <pre>{{ displayedResponse }}</pre>
     </div>
 
     <!-- Message d'erreur si problème -->
@@ -79,6 +98,18 @@ const sendMessage = async () => {
 </template>
 
 <style>
+
+pre::after {
+  content: ""; /* Curseur */
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 /* Conteneur principal */
 .chat-container {
   max-width: 800px;
