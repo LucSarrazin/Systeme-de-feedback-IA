@@ -75,7 +75,7 @@ npm run dev
 Ouvrez votre navigateur et allez sur :
 
 ```bash
-http://localhost:8080
+http://localhost:5173
 ```
 
 ---
