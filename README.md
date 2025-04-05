@@ -2,19 +2,18 @@
 
 ## 📜 Table des matières
 
-- [📖 Description](#-description)
-- [🖥️ Aperçu](#-aperçu)
-- [🚀 Fonctionnalités](#-fonctionnalités)
-- [🛠️ Technologies utilisées](#-technologies-utilisées)
-- [📌 Prérequis](#-prérequis)
-- [⚙️ Installation](#-installation)
-- [🤝 Contribution](#-contribution)
-- [📄 License](#-license)
-
+- [📖 Description](#description)
+- [🖥️ Aperçu](#aperçu)
+- [🚀 Fonctionnalités](#fonctionnalités)
+- [🛠️ Technologies utilisées](#technologies-utilisées)
+- [📌 Prérequis](#prérequis)
+- [⚙️ Installation](#installation)
+- [🤝 Contribution](#contribution)
+- [📄 License](#license)
 
 ---
 
-## 📖 Description  
+## 📖 Description
 
 Bienvenue dans le **Système de Feedback IA** ! 🚀  
 
@@ -54,7 +53,7 @@ L'objectif est d'offrir un **outil intelligent, rapide et intuitif**, facilitant
 
 ---
 
-## 🛠️ Technologies utilisées  
+## 🛠️ Technologies utilisées
 
 - **💻 Framework** : Vue.js (v3.5.13) (Vite (6.2.5) )  
 - **🤖 IA** : API Mistral AI (mistral-small-latest)
@@ -70,7 +69,7 @@ Avant de commencer, assurez-vous d'avoir installé :
 
 ---
 
-## ⚙️ Installation  
+## ⚙️ Installation
 
 1️⃣ **Clonez le dépôt**  
 ```bash
