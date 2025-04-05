@@ -29,14 +29,16 @@ L'objectif est d'offrir un **outil intelligent, rapide et intuitif**, facilitant
 
 ## 🖥️ Aperçu
 ✨ **Interface utilisateur moderne et réactive**
-![alt text](http://url/to/img.png)
-
+![Interface](https://github.com/user-attachments/assets/20b4c540-fe63-40e0-a79e-7e3ed70caa9c)
 
 📡 **Feedback instantané sur les phrases soumises**
+![Feedback](https://github.com/user-attachments/assets/a950c2fd-6a9c-4af5-9b10-17a0399d88d0)
 
 📄 **Génération automatique de lettres de motivation**
+![Lettre de motivation](https://github.com/user-attachments/assets/07036855-7d8d-4437-8fbd-8ec23f7cd694)
 
 ✍️ **Correction grammaticale et orthographique intégrée**
+![Correcteur Orthographique](https://github.com/user-attachments/assets/f4c9b3b9-07bd-4899-b554-2d1d621e5ae9)
 
 ---
 
