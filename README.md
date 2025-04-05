@@ -40,8 +40,8 @@ L'objectif est d'offrir un **outil intelligent, rapide et intuitif**, facilitant
 
 ## 🛠️ Technologies utilisées  
 
-- **💻 Framework** : Vue.js (Vite) 
-- **🤖 IA** : API Mistral AI
+- **💻 Framework** : Vue.js (v3.5.13) (Vite (6.2.5) )  
+- **🤖 IA** : API Mistral AI (mistral-small-latest)
 
 ---
 
