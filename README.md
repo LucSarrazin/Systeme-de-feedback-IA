@@ -2,14 +2,14 @@
 
 ## 📜 Table des matières
 
-- [📖 Description](#📖-description)
-- [🖥️ Aperçu](#🖥️-aperçu)
-- [🚀 Fonctionnalités](#🚀-fonctionnalités)
-- [🛠️ Technologies utilisées](#🛠️-technologies-utilisées)
-- [📌 Prérequis](#📌-prérequis)
-- [⚙️ Installation](#⚙️-installation)
-- [🤝 Contribution](#🤝-contribution)
-- [📄 License](#📄-license)
+- [📖 Description](#-description)
+- [🖥️ Aperçu](#-aperçu)
+- [🚀 Fonctionnalités](#-fonctionnalités)
+- [🛠️ Technologies utilisées](#-technologies-utilisées)
+- [📌 Prérequis](#-prérequis)
+- [⚙️ Installation](#-installation)
+- [🤝 Contribution](#-contribution)
+- [📄 License](#-license)
 
 ---
 
