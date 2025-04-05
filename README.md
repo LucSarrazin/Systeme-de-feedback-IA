@@ -27,6 +27,17 @@ L'objectif est d'offrir un **outil intelligent, rapide et intuitif**, facilitant
 
 ---
 
+## 🖥️ Aperçu
+✨ **Interface utilisateur moderne et réactive**
+
+📡 **Feedback instantané sur les phrases soumises**
+
+📄 **Génération automatique de lettres de motivation**
+
+✍️ **Correction grammaticale et orthographique intégrée**
+
+---
+
 ## 🚀 Fonctionnalités
 
 ✔️ **Soumission de phrases** pour analyse.  
@@ -77,17 +88,6 @@ Ouvrez votre navigateur et allez sur :
 ```bash
 http://localhost:5173
 ```
-
----
-
-## 🖥️ Aperçu
-✨ **Interface utilisateur moderne et réactive**
-
-📡 **Feedback instantané sur les phrases soumises**
-
-📄 **Génération automatique de lettres de motivation**
-
-✍️ **Correction grammaticale et orthographique intégrée**
 
 ---
 
