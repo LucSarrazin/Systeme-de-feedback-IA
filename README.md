@@ -3,7 +3,7 @@
 ## 📜 Table des matières
 
 - [📖 Description](#-description)
-- [🖥️ Aperçu](#-aperçu)
+- [🖥️ Aperçu](#aperçu)
 - [🚀 Fonctionnalités](#-fonctionnalités)
 - [🛠️ Technologies utilisées](#-technologies-utilisées)
 - [📌 Prérequis](#-prérequis)
@@ -27,7 +27,8 @@ L'objectif est d'offrir un **outil intelligent, rapide et intuitif**, facilitant
 
 ---
 
-## 🖥️ Aperçu
+<h2 id="aperçu">🖥️ Aperçu</h2>
+
 ✨ **Interface utilisateur moderne et réactive**
 ![Interface](https://github.com/user-attachments/assets/20b4c540-fe63-40e0-a79e-7e3ed70caa9c)
 
