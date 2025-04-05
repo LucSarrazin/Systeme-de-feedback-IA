@@ -3,11 +3,11 @@
 ## 📜 Table des matières
 
 - [📖 Description](#-description)
+- [🖥️ Aperçu](#-aperçu)
 - [🚀 Fonctionnalités](#-fonctionnalités)
 - [🛠️ Technologies utilisées](#-technologies-utilisées)
 - [📌 Prérequis](#-prérequis)
 - [⚙️ Installation](#-installation)
-- [🖥️ Aperçu](#-aperçu)
 - [🤝 Contribution](#-contribution)
 - [📄 License](#-license)
 
@@ -29,6 +29,8 @@ L'objectif est d'offrir un **outil intelligent, rapide et intuitif**, facilitant
 
 ## 🖥️ Aperçu
 ✨ **Interface utilisateur moderne et réactive**
+![alt text](http://url/to/img.png)
+
 
 📡 **Feedback instantané sur les phrases soumises**
 
