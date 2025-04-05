@@ -5,9 +5,9 @@
 - [📖 Description](#-description)
 - [🖥️ Aperçu](#aperçu)
 - [🚀 Fonctionnalités](#-fonctionnalités)
-- [🛠️ Technologies utilisées](#-technologies-utilisées)
+- [🛠️ Technologies utilisées](#technologies-utilisées)
 - [📌 Prérequis](#-prérequis)
-- [⚙️ Installation](#-installation)
+- [⚙️ Installation](#installation)
 - [🤝 Contribution](#-contribution)
 - [📄 License](#-license)
 
@@ -54,7 +54,7 @@ L'objectif est d'offrir un **outil intelligent, rapide et intuitif**, facilitant
 
 ---
 
-## 🛠️ Technologies utilisées
+<h2 id="technologies-utilisées">🛠️ Technologies utilisées</h2>
 
 - **💻 Framework** : Vue.js (v3.5.13) (Vite (6.2.5) )  
 - **🤖 IA** : API Mistral AI (mistral-small-latest)
@@ -70,7 +70,7 @@ Avant de commencer, assurez-vous d'avoir installé :
 
 ---
 
-## ⚙️ Installation
+<h2 id="installation">⚙️ Installation</h2>
 
 1️⃣ **Clonez le dépôt**  
 ```bash
