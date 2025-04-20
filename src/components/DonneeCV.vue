@@ -236,7 +236,7 @@ const uploadFile = async () => {
 
 <template>
   <div class="chat-container">
-    <h2>🔎 Analyse de Phrase</h2>
+    <h2>🔎 Analyse de CV</h2>
 
     <!-- Champ de sélection de fichier -->
     <div class="file-input-container">
