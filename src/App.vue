@@ -3,6 +3,7 @@ import { ref } from 'vue';
 
 // Gestion du menu responsive
 const menuOpen = ref(false);
+const dropdownOpen = ref(false); // Ajout de la gestion du dropdown
 </script>
 
 <template>
@@ -22,8 +23,16 @@ const menuOpen = ref(false);
           <router-link to="/" @click="menuOpen = false">Analyse de phrase</router-link>
           <router-link to="/lettre" @click="menuOpen = false">Lettre de motivation</router-link>
           <router-link to="/orthographe" @click="menuOpen = false">Correcteur</router-link>
+          <!-- Dropdown Menu -->
+          <div class="dropdown" @click="dropdownOpen = !dropdownOpen">
+            <button class="dropdown-btn">Menu Recruteur</button>
+            <div v-if="dropdownOpen" class="dropdown-menu">
+              <router-link to="/extraction" @click="menuOpen = false, dropdownOpen = false">Extraction de données d'un CV</router-link>
+              <router-link to="/multipleCV" @click="dropdownOpen = false">Multiple CV</router-link>
+            </div>
+          </div>
         </div>
-      </div>
+        </div>
     </nav>
   </header>
 
@@ -141,6 +150,74 @@ main {
   max-height: 90vh; /* Ne dépasse pas l’écran en hauteur */
 }
 
+
+
+
+
+/* === Dropdown Menu === */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%; /* Le menu prendra toute la largeur du bouton */
+  background: rgba(0, 91, 187, 0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: none;  /* Cacher par défaut */
+  flex-direction: column;
+  align-items: stretch; /* Assure que les éléments prennent toute la largeur */
+  text-align: center;
+  border-radius: 5px;
+  z-index: 9999;
+  padding: 0; /* Enlever les marges internes */
+  min-width: 150px; /* Largeur minimale pour éviter les débordements */
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  display: block;
+  border-radius: 5px;
+  width: 100%; /* Chaque option occupe toute la largeur disponible */
+  box-sizing: border-box;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Affiche le menu au survol */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
 
 
 
