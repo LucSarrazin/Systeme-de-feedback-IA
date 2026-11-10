@@ -26,7 +26,7 @@ const sendMessage = async () => {
 
   try {
     const chatResponse = await client.chat.complete({
-      model: "mistral-large-latest",
+      model: "mistral-small-latest",
       messages: [{
         role: "user",
         content: `Analyse la phrase fournie et retourne uniquement un JSON respectant strictement cette structure :
